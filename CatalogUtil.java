@@ -41,5 +41,9 @@ public class CatalogUtil {
  new FileOutputStream(catalog.getPath()))) {
  oos.writeObject(catalog);
  }
+ catch (IOException inout){
+            System.out.println("Fila nu s-a putut salva");
  }
+ }
+ 
 }
