@@ -1,0 +1,6 @@
+Aplicatia are rolul de a administra un catalog de documente.
+Documentele sunt localizate folosind URL-uri, fiecare avand nume si id.
+
+Avem clasele Catalog si Document(Desktop nu mi-a iesit) si clasa CatalogUtil care se ocupa de activitatea externa a cataloagelor.
+Metoda load incarca ,respectiv citeste o fila selectata, iar save gestioneaza calea ei. In cazul in care ceva merge rau exceptiile vor 
+afisa un mesaj corespunzator.
