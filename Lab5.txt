@@ -4,3 +4,14 @@ Documentele sunt localizate folosind URL-uri, fiecare avand nume si id.
 Avem clasele Catalog si Document(Desktop nu mi-a iesit) si clasa CatalogUtil care se ocupa de activitatea externa a cataloagelor.
 Metoda load incarca ,respectiv citeste o fila selectata, iar save gestioneaza calea ei. In cazul in care ceva merge rau exceptiile vor 
 afisa un mesaj corespunzator.
+
+
+Clasele: ListComand,LoadComand,ViewComand,SaveComand,Report implementeaza metodele cu interfata Comand.
+1.ListComand afiseaza numele catalogului si a documentelor ce il contin.
+2.LoadComand: Utilizatorul trebuie sa furnizeze programului calea catre locatia catalogului iar apoi prin metoda load(String path)
+calea este memorata, dupa aceea poate alege sa vizualizeze catalogul prin list sau view sau poate iesi din program.
+3.ViewComand utilizatorul "comunica" cu programul ,putand accesa un document dintr-un anumit catalog prin cuvantul cheie "view", apoi 
+introduce id-ul corespunzator. Daca id-ul nu exista utilizatorul este instiintat(desi programul ne se opreste).
+4.SaveComand se produce un catalog furnizand numele si path-ul catre catalog, apoi avem posibilitatea de a adauga documente in catalog.
+Documentele au nume,id,tag. Ele sunt salvate cu save(Catalog catalog).
+5.Report (Codul e in CatalogUtil) fabrica un doc HTML cu nume si continut.
