@@ -5,11 +5,10 @@
  */
 package lab5;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.awt.Desktop;
 
 /**
  *
@@ -46,4 +45,37 @@ public class CatalogUtil {
  }
  }
  
+ public static void view(Document doc) throws IOException, URISyntaxException {
+
+
+        Desktop desktop = Desktop.getDesktop();
+        File file = new File("c:\\cygwin\\cygwin.bat");
+        if (!file.isDirectory())
+            file = file.getParentFile();
+        if (file.exists()){
+            desktop.open(new File(doc.getLocation()));
+        }
+        else
+            desktop.browse(new URI(doc.getLocation()));
+
+    }
+ 
+  private static int rep=0;
+  public static void report(Catalog catalog) throws IOException, URISyntaxException {
+        File file=new File("report"+rep+".html");
+        rep++;
+        BufferedWriter writer=new BufferedWriter(new FileWriter(file));
+        writer.write("<h1>"+catalog.getName()+ "</h1>");
+       
+        for (Document d:catalog.getDocuments()){
+            writer.write("<p>" + d.toString()+ "</p>");   
+        }
+        writer.close();
+        Desktop desktop = Desktop.getDesktop();
+        desktop.browse(new URI(file.getPath()));
+    }
+  
+  
+  
+  
 }

@@ -5,6 +5,8 @@
  */
 package lab5;
 
+import java.io.IOException;
+
 /**
  *
  * @author user
@@ -19,7 +21,7 @@ public class Lab5 {
        
         Lab5 app = new Lab5();
  app.testCreateSave();
- app.testLoadView();
+ 
     }
     private void testCreateSave() {
  Catalog catalog =
@@ -28,15 +30,6 @@ public class Lab5 {
  "https://profs.info.uaic.ro/~acf/java/slides/en/intro_slide_en.pdf");
  doc.addTag("type", "Slides");
  catalog.add(doc);
-
- CatalogUtil.save(catalog);
  }
-    
-    private void testLoadView() {
- Catalog catalog = CatalogUtil.load("d:/java/catalog.ser");
- Document doc = catalog.findById("java1");
- CatalogUtil.view(doc);
- }
-    
  
 }
